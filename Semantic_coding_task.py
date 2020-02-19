@@ -1,9 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
+# This code looks for key words in a DataFrame column (Column Text in this code) and assigns rating based on impressions
+# that participants wrote down, the impressions are taken from a survey. These could take any form, due to ability
+# to change the key words.
+
+
 
 # # Importing data
-
-# In[71]:
 
 
 ### Importing the required modules ###
@@ -17,9 +18,8 @@ data = pd.read_csv('data_file_location')
 df = pd.DataFrame(data)
 
 
-# # Assigning impression rating to the responses
 
-# In[ ]:
+# # Assigning impression rating to the responses
 
 
 ### List of the words to search for in order to find the impressions ###
@@ -45,9 +45,8 @@ df['Impression'] = pd.np.where(df.Text.str.contains('|'.join(searchfor1)),"1",  
 ### 0 is codded for NA ###
 
 
-# # Assigning the intentions to the responses
 
-# In[ ]:
+# # Assigning the intentions to the responses
 
 
 ### List of the words to search for in order to find the intentions ###
@@ -66,18 +65,11 @@ df['Intention'] = pd.np.where(df.Text.str.contains('|'.join(searchfor2_1)),"1", 
 ### 0 is codded for NA ###
 
 
-# # Exporting the coded data
 
-# In[ ]:
+# # Exporting the coded data
 
 
 ### Exports coded data ###
 
 df.to_csv("coded_data.csv")
-
-
-# In[ ]:
-
-
-
 
